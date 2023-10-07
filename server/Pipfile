@@ -1,0 +1,21 @@
+[packages]
+fastapi = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+sqlalchemy = "*"
+pydantic = "*"
+bcrypt = "*"
+sqlalchemy-stubs = "*"
+mistune = "*"
+python-multipart = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
+jose = "*"
+redis = "*"
+fastapi-amis-admin = "*"
+pydantic-settings = "*"
+jinja2 = "*"
+
+[dev-packages]
+black = {version = "*"}
+
+[requires]
+python_version = "3.11"
