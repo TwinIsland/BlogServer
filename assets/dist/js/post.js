@@ -7,7 +7,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 05, 2023",
                 word_count: "662 Words",
-                cover_img: "./imgs/banner.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=1"
             },
             description: "Lorem ipsum aasdad",
         },
@@ -16,7 +16,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 05, 2023",
                 word_count: "662 Words",
-                cover_img: "./imgs/banner.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=2"
             },
             description: "Lorem ipsum aasdad",
         },
@@ -25,7 +25,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 05, 2023",
                 word_count: "662 Words",
-                cover_img: "./imgs/banner.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=3"
             },
             description: "Lorem ipsum aasdad",
         },
@@ -34,7 +34,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 05, 2023",
                 word_count: "662 Words",
-                cover_img: "./imgs/banner.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=4"
             },
             description: "Lorem ipsum aasdad",
         },
@@ -43,7 +43,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 05, 2023",
                 word_count: "662 Words",
-                cover_img: "./imgs/banner.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=5"
             },
             description: "Lorem ipsum aasdad",
         },
@@ -52,7 +52,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 06, 2023",
                 word_count: "715 Words",
-                cover_img: "./imgs/network.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=6"
             },
             description: "Lorem ipsum dolor sit amet",
         },
@@ -61,7 +61,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 07, 2023",
                 word_count: "689 Words",
-                cover_img: "./imgs/frontend.jpg"
+                cover_img: ""
             },
             description: "Lorem ipsum consectetuer adipiscing",
         },
@@ -70,7 +70,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 08, 2023",
                 word_count: "653 Words",
-                cover_img: "./imgs/backend.jpg"
+                cover_img: "https://api.erdao.me/anipic?v=6"
             },
             description: "Lorem ipsum elit sed diam",
         },
@@ -79,7 +79,7 @@ function request_article(from, to) {
             meta: {
                 date: "APR 09, 2023",
                 word_count: "678 Words",
-                cover_img: "./imgs/database.jpg"
+                cover_img: ""
             },
             description: "Lorem ipsum nonummy nibh euismod",
         }

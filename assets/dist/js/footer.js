@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('.blog-footer-logo').textContent = getBlogInfo("blog_name");
 
     // the render ended, set back the scroll bar and hide the loading page
-
-    // 0.3s delay to make animation smoother 
+    // min 0.3s delay to make animation smoother 
     setTimeout(function() {
         const loadingOverlay = document.getElementById('loadingOverlay');
         const loadingText = document.querySelector('.loadingText');
@@ -21,6 +20,5 @@ document.addEventListener("DOMContentLoaded", function() {
         loadingOverlay.addEventListener('transitionend', function() {
             loadingOverlay.style.display = 'none';
         });
-    
     }, 300);
 });

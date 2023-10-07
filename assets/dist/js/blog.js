@@ -12,20 +12,29 @@ export function getBlogInfo(key = null) {
             featured_post: {
                 title: "CS361: 期中 Review",
                 leadContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sunt qui reprehenderit nihil possimus molestias iusto illo fugiat, excepturi aspernatur quo unde nulla libero maxime soluta eaque debitis voluptatem itaque.",
-                link: "./post.html"
+                link: "./post.html",
+                cover_img: ""
             },
 
             trend_post: [
                 {
-                    title: "CS361: 期中 Review",
-                    leadContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sunt qui reprehenderit nihil possimus molestias iusto illo fugiat, excepturi aspernatur quo unde nulla libero maxime soluta eaque debitis voluptatem itaque.",
-                    link: "./post.html"
-                },    
+                    title: "云计算的未来趋势",
+                    meta: {
+                        date: "APR 11, 2023",
+                        word_count: "690 Words",
+                        cover_img: "https://api.erdao.me/anipic?v=6"
+                    },
+                    description: "Lorem ipsum adipiscing elit, sed diam",
+                },
                 {
-                    title: "CS361: 期中 Review",
-                    leadContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sunt qui reprehenderit nihil possimus molestias iusto illo fugiat, excepturi aspernatur quo unde nulla libero maxime soluta eaque debitis voluptatem itaque.",
-                    link: "./post.html"
-                }
+                    title: "深度学习在医疗领域的应用",
+                    meta: {
+                        date: "APR 12, 2023",
+                        word_count: "712 Words",
+                        cover_img: ""
+                    },
+                    description: "Lorem ipsum tincidunt ut laoreet",
+                }            
             ],
 
             archives: [
@@ -34,10 +43,7 @@ export function getBlogInfo(key = null) {
                 { k: "March 2021", link: "./mar2021" },
                 { k: "April 2021", link: "./apr2021" },
                 { k: "May 2021", link: "./may2021" },
-                { k: "June 2021", link: "./jun2021" },
-                { k: "July 2021", link: "./jul2021" },
-                { k: "August 2021", link: "./aug2021" },
-                { k: "September 2021", link: "./sep2021" }
+
             ],
 
             navLinks: [
@@ -51,7 +57,7 @@ export function getBlogInfo(key = null) {
                 { text: "实验室", href: "#" },
             ],
 
-            about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dolorem, reprehenderit quisquam esse nam facere sunt ipsam soluta accusantium incidunt, neque molestias necessitatibus non laborum unde rem ea voluptates minima!"
+            about: "贰岛主题 V1.0 正式发布啦 Erdao Theme V1.0 officially released!!!"
         };
 
         // set local storage is first initialized
