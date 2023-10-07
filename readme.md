@@ -1,5 +1,4 @@
-main page: https://twinisland.github.io/suikaBlog/
+main page: https://twinisland.github.io/SuikaBlog/
 
-post page: https://twinisland.github.io/suikaBlog/post.html
 
 underdevelopment
