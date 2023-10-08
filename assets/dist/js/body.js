@@ -3,8 +3,8 @@ import { getVisitorInfo } from './visitor.js';
 import { fetchArticles } from './post.js';
 import { displayMsgBox, Color } from './utils.js'
 import { MSG_BOX_DISPLAY_TIME, MSG_BOX_ERRMSG_DISPLAY_TIME, LOADING_ERR_MSG, LOADING_TIMEOUT, 
-    NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME, DEFAULT_TREND_COVER_IMG,
-    DEFAULT_POST_COVER_IMG, SOCIAL_MEDIA_BILIBILI, SOCIAL_MEDIA_GITHUB, SOCIAL_MEDIA_EMAIL_TRIM } from './config.js'
+    NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME, SOCIAL_MEDIA_BILIBILI, 
+    SOCIAL_MEDIA_GITHUB, SOCIAL_MEDIA_EMAIL_TRIM } from './config.js'
 
 document.addEventListener("DOMContentLoaded", function () {
     // render featured post
@@ -13,9 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const featuredPostBody = document.getElementById('featured-post')
     if (featuredPostContent.cover_img && featuredPostContent.cover_img.trim() !== "") {
         featuredPostBody.style.backgroundImage = `url('${featuredPostContent.cover_img}')`;
-    } else {
-        featuredPostBody.style.backgroundImage = `url('${ DEFAULT_POST_COVER_IMG }')`;
-    }
+    } 
 
     document.getElementById('post-title').textContent = featuredPostContent.title;
     document.getElementById('post-content').textContent = featuredPostContent.leadContent;
@@ -83,7 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
         postClone.querySelector('.post-title').innerText = post.title;
         postClone.querySelector('.post-date').innerText = post.meta.date;
         postClone.querySelector('.post-description').innerText = post.description;
-        postClone.querySelector('.post-image').src = post.meta.cover_img == "" ? DEFAULT_TREND_COVER_IMG : post.meta.cover_img;
+
+        if (post.meta.cover_img && post.meta.cover_img.trim() !== "") {
+            postClone.querySelector('.post-image').src = post.meta.cover_img ;
+        }
 
         // Append the populated clone to the container
         trendPostsContainer.appendChild(postClone);
@@ -126,15 +127,14 @@ function renderArticle(article) {
     const articleElement = articleClone.querySelector('article'); // assuming <article> is the root element of your template
 
     if (article.meta.cover_img && article.meta.cover_img.trim() !== "") {
-        articleElement.style.backgroundImage = `url('${article.meta.cover_img}')`;
-    } else {
-        articleElement.style.backgroundImage = `url('${ DEFAULT_POST_COVER_IMG }')`;
+        articleElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${article.meta.cover_img}')`;
     }
 
     document.querySelector('.article_box').appendChild(articleClone);
 }
 
-let canLoadMore = true;
+let canLoadMore = true;     // flag indicate if left post to be loaded
+let isLoading = false       // mutex to ensure next loading happend after cur loading finish
 let renderedPostsCount = INIT_RENDER_POST;
 
 function loadMoreContent() {
@@ -143,6 +143,10 @@ function loadMoreContent() {
         return;
     };
 
+    if (isLoading) return   
+    isLoading = true
+
+    canLoadMore = true;
     // Show the skeleton screen
     document.querySelector('.skeleton-container').style.display = 'block';
 
@@ -167,12 +171,14 @@ function loadMoreContent() {
                 });
 
                 renderedPostsCount += newArticles.length;
-                canLoadMore = true;
             }
+
+            isLoading = false
         })
         .catch(error => {
             document.querySelector('.skeleton-container').style.display = 'none';
             displayMsgBox(error.message, MSG_BOX_ERRMSG_DISPLAY_TIME, Color.RED);
+            isLoading = false
         });
 }
 

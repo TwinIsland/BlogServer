@@ -94,6 +94,6 @@ export function fetchArticles(start, end) {
         // Simulate fetching the post metadata, for example
         setTimeout(() => {
             resolve(request_article(start, end));
-        }, 1000); // for example, simulating variable fetch times
+        }, 500); // for example, simulating variable fetch times
     });
 }

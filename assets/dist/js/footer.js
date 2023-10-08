@@ -20,5 +20,5 @@ document.addEventListener("DOMContentLoaded", function() {
         loadingOverlay.addEventListener('transitionend', function() {
             loadingOverlay.style.display = 'none';
         });
-    }, 300);
+    }, 500);
 });
