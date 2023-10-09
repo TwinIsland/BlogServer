@@ -16,7 +16,7 @@ To test SuikaBlog, we provide a test server that is driven by `express`. Here's 
    node server.js
    ```
 
-The test server is built using `zig/zap`, so you don't need to worry about dealing with any npm-related stuff. It's a convenient way to preview and test SuikaBlog during development.
+The final server will be built using `zig/zap`, so you don't need to worry about dealing with any npm-related stuff. It's a convenient way to preview and test SuikaBlog during development.
 
 ## Under Development
 
