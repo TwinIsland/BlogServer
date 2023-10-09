@@ -52,7 +52,7 @@ export function getBlogInfo(key = null) {
                 { text: "首页", link: "#" },
                 { text: "笔记", link: "#" },
                 { text: "追番", link: "#" },
-                { text: "关于", link: "./about" },
+                { text: "关于", link: "/about" },
                 { text: "相册", link: "#" },
                 { text: "存档", link: "#" },
                 { text: "友链", link: "#" },

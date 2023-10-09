@@ -39,10 +39,9 @@ document.querySelector('.article_box').addEventListener('click', function(event)
 
     if (!blogPost) return;
 
-    // bing click event
     const articleId = blogPost.getAttribute('article-id');
-    window.open(wrapArticleUrl(articleId), '_blank');
-});
+    page.redirect('/article/' + articleId);
+  });
 
 
 // search
