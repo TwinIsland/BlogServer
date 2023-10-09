@@ -23,6 +23,7 @@
   <link href="assets/dist/css/blog.css" rel="stylesheet">
   <link href="assets/dist/css/post.css" rel="stylesheet">
   <link href="assets/dist/css/material.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -118,7 +119,7 @@
         </div>
         <!-- search icon -->
         <div class="col-4 d-flex justify-content-end align-items-center">
-          <a class="link-secondary" href="#" aria-label="Search">
+          <a class="link-secondary" href="#" aria-label="Search" data-bs-toggle="modal" data-bs-target="#modal-search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
               stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
               viewBox="0 0 24 24">
@@ -141,9 +142,9 @@
   <main class="container">
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" id="featured-post">
       <div class="col-md-6 px-0">
-        <h1 class="display-4 fst-italic" id="post-title"></h1>
-        <p class="lead lead-content my-3" id="post-content"></p>
-        <p class="lead mb-0"><a href="#" id="post-link" class="text-white fw-bold">Continue reading...</a></p>
+        <h1 class="display-4 fst-italic" id="featured-post-title"></h1>
+        <p class="lead lead-content my-3" id="featured-post-content"></p>
+        <p class="lead mb-0"><a href="#" id="featured-post-link" class="text-white fw-bold">Continue reading...</a></p>
       </div>
     </div>
 
@@ -156,7 +157,7 @@
             <h3 class="mb-0 post-title"></h3>
             <div class="mb-1 text-muted post-date"></div>
             <p class="card-text mb-auto mt-2 post-description"></p>
-            <a href="#" class="stretched-link">Continue reading</a>
+            <a href="#" class="stretched-link" id="trend-link">Continue reading</a>
           </div>
           <div class="col-auto d-none d-lg-block">
             <img class="bd-placeholder-img post-image" src="assets/imgs/banner.jpg" alt="Banner Description">
@@ -175,7 +176,7 @@
 
         <!-- older post -->
         <template id="articleTemplate">
-          <article class="blog-post">
+          <article class="blog-post" article-id="">
             <h2 class="blog-post-title"></h2>
             <p class="blog-post-meta">
               <span></span>
@@ -184,6 +185,7 @@
             <p class="blog-post-content"></p>
           </article>
         </template>
+
         <div class="article_box"></div>
 
 
@@ -229,6 +231,7 @@
             <ul class="timeline mt-3" id="archiveContainer"></ul>
           </div>
 
+          <!-- Contact list -->
           <div class="p-4 d-none d-md-block contact-list">
             <h4 class="fst-italic">Find me</h4>
             <ol class="list-unstyled d-inline-flex">
@@ -270,7 +273,7 @@
     </div>
   </main>
 
-  <!-- Modal for login -->
+  <!-- Modal for Email -->
   <div class="modal fade" id="modal-email" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -330,16 +333,35 @@
     </div>
   </div>
 
+  <!-- Modal for search -->
+  <div class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">搜索 / Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="tag-input-container">
+            <div class="tag-list d-flex flex-wrap mb-2"></div>
+            <input type="text" class="form-control" id="tag-input" placeholder="#ai for tag input">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h2 class="text-body-secondary" style="user-select: none;">SUIKA-SEARCH</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
     <p>© 2023 <span class="blog-footer-logo"></span></p>
   </footer>
 
-  <!-- the import different make difference, do not switch order -->
+  <!-- the import order make difference, do not switch -->
   <script type="module" src="assets/dist/js/header.js?v=0.2"></script>
   <script type="module" src="assets/dist/js/body.js?v=0.2"></script>
   <script type="module" src="assets/dist/js/footer.js?v=0.2"></script>
-  <script type="module" src="assets/dist/js/style.js?v=0.2"></script>
 
   <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 

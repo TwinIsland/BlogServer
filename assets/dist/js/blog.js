@@ -10,14 +10,15 @@ export function getBlogInfo(key = null) {
             tags: ["Technology", "AI", "Programming", "Web Development", "Philosophy", "Education", "Research", "Innovation", "Design", "Tutorials"],
 
             featured_post: {
+                id: 22,
                 title: "CS361: 期中 Review",
                 leadContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus sunt qui reprehenderit nihil possimus molestias iusto illo fugiat, excepturi aspernatur quo unde nulla libero maxime soluta eaque debitis voluptatem itaque.",
-                link: "./post.html",
                 cover_img: ""
             },
 
             trend_post: [
                 {
+                    id: 88,
                     title: "云计算的未来趋势",
                     meta: {
                         date: "APR 11, 2023",
@@ -27,6 +28,7 @@ export function getBlogInfo(key = null) {
                     description: "Lorem ipsum adipiscing elit, sed diam",
                 },
                 {
+                    id: 91,
                     title: "深度学习在医疗领域的应用",
                     meta: {
                         date: "APR 12, 2023",

@@ -515,3 +515,13 @@ a:focus {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.post-description {
+  min-height: 50px;
+}
+
+/* badge */
+.badge {
+  cursor: pointer;
+  margin-bottom: 3px; /* Adjust the spacing between wrapped tags */
+}

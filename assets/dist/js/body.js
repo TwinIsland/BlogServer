@@ -1,25 +1,28 @@
 import { getBlogInfo } from './blog.js';
 import { getVisitorInfo } from './visitor.js';
-import { fetchArticles } from './post.js';
+import { fetchArticles, wrapArticleUrl } from './post.js';
 import { displayMsgBox, Color } from './utils.js'
-import { MSG_BOX_DISPLAY_TIME, MSG_BOX_ERRMSG_DISPLAY_TIME, LOADING_ERR_MSG, LOADING_TIMEOUT, 
-    NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME, SOCIAL_MEDIA_BILIBILI, 
-    SOCIAL_MEDIA_GITHUB, SOCIAL_MEDIA_EMAIL_TRIM } from './config.js'
+import {
+    MSG_BOX_DISPLAY_TIME, MSG_BOX_ERRMSG_DISPLAY_TIME, LOADING_ERR_MSG, LOADING_TIMEOUT,
+    NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME, SOCIAL_MEDIA_BILIBILI,
+    SOCIAL_MEDIA_GITHUB, SOCIAL_MEDIA_EMAIL_TRIM
+} from './config.js'
 
 document.addEventListener("DOMContentLoaded", function () {
     // render featured post
     const featuredPostContent = getBlogInfo('featured_post');
 
-    const featuredPostBody = document.getElementById('featured-post')
-    if (featuredPostContent.cover_img && featuredPostContent.cover_img.trim() !== "") {
+    const featuredPostBody = document.getElementById('featured-post');
+    if (featuredPostContent.cover_img !== "") {
         featuredPostBody.style.backgroundImage = `url('${featuredPostContent.cover_img}')`;
-    } 
-
-    document.getElementById('post-title').textContent = featuredPostContent.title;
-    document.getElementById('post-content').textContent = featuredPostContent.leadContent;
-    const postLinkElement = document.getElementById('post-link');
-    postLinkElement.href = featuredPostContent.link;
-
+    }
+    
+    document.getElementById('featured-post-title').textContent = featuredPostContent.title;
+    document.getElementById('featured-post-content').textContent = featuredPostContent.leadContent;
+    
+    const postLinkElement = document.getElementById('featured-post-link');
+    postLinkElement.href = wrapArticleUrl(featuredPostContent.id);
+    
     // render visitor info
     const visitorInfo = getVisitorInfo();
     document.getElementById('userInfo').textContent = visitorInfo['name']
@@ -32,27 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     Promise.race([fetchPromise, timeoutPromise])
-    .then(newArticles => {
-        // Once data is fetched, hide skeleton
-        document.querySelector('.skeleton-container-2').style.display = 'none';
-
-        // nothing to be loaded
-        if (newArticles.length === 0) {
-            canLoadMore = false;
-            displayMsgBox(NO_MORE_POST_MSG, MSG_BOX_DISPLAY_TIME);
-        } else {
-            // Render the new articles
+        .then(newArticles => {
+            // Once data is fetched, hide skeleton
+            document.querySelector('.skeleton-container-2').style.display = 'none';
             newArticles.forEach(article => {
                 renderArticle(article);
             });
-
-            renderedPostsCount += newArticles.length;
-            canLoadMore = true;
-        }
-    })
-    .catch(error => {
-        displayMsgBox(error.message, MSG_BOX_ERRMSG_DISPLAY_TIME, Color.RED);
-    });
+        })
+        .catch(error => {
+            displayMsgBox(error.message, MSG_BOX_ERRMSG_DISPLAY_TIME, Color.RED);
+        });
 
     // render about
     document.getElementById('about-body').textContent = getBlogInfo("about")
@@ -74,16 +66,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const trendPostsData = getBlogInfo('trend_post');
 
     trendPostsData.forEach(post => {
-        // Clone the template
         const postClone = document.importNode(postTemplate, true);
 
-        // Populate the clone with data
         postClone.querySelector('.post-title').innerText = post.title;
         postClone.querySelector('.post-date').innerText = post.meta.date;
         postClone.querySelector('.post-description').innerText = post.description;
 
+        const postLinkElement = postClone.getElementById('trend-link');
+        postLinkElement.href = wrapArticleUrl(post.id);
+
         if (post.meta.cover_img && post.meta.cover_img.trim() !== "") {
-            postClone.querySelector('.post-image').src = post.meta.cover_img ;
+            postClone.querySelector('.post-image').src = post.meta.cover_img;
         }
 
         // Append the populated clone to the container
@@ -97,15 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const archives = getBlogInfo("archives");
 
     archives.forEach(archive => {
-        // Clone the template
         const archiveItemClone = document.importNode(archiveItemTemplate, true);
 
-        // Populate the clone with data
         const archiveLink = archiveItemClone.querySelector('a');
         archiveLink.innerText = archive.k;
         archiveLink.href = archive.link;
 
-        // Append the populated clone to the archive container
         archiveContainer.appendChild(archiveItemClone);
     });
 
@@ -120,13 +110,16 @@ document.addEventListener("DOMContentLoaded", function () {
 function renderArticle(article) {
     const articleTemplate = document.getElementById('articleTemplate').content;
     const articleClone = document.importNode(articleTemplate, true);
+
     articleClone.querySelector('.blog-post-title').innerText = article.title;
     articleClone.querySelector('.blog-post-meta > span:first-child').innerText = article.meta.date;
     articleClone.querySelector('.blog-post-meta > span.text-warning').innerText = `  ${article.meta.word_count}`;
     articleClone.querySelector('.blog-post-content').innerText = article.description;
-    const articleElement = articleClone.querySelector('article'); // assuming <article> is the root element of your template
 
-    if (article.meta.cover_img && article.meta.cover_img.trim() !== "") {
+    const articleElement = articleClone.querySelector('article');
+    articleElement.setAttribute('article-id', article.id);
+
+    if (article.meta.cover_img !== "") {
         articleElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${article.meta.cover_img}')`;
     }
 
@@ -143,14 +136,14 @@ function loadMoreContent() {
         return;
     };
 
-    if (isLoading) return   
+    if (isLoading) return
     isLoading = true
 
-    canLoadMore = true;
     // Show the skeleton screen
     document.querySelector('.skeleton-container').style.display = 'block';
 
     const fetchPromise = fetchArticles(renderedPostsCount, renderedPostsCount + RENDER_POST_PER_TIME);
+
     const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject(new Error(LOADING_ERR_MSG)), LOADING_TIMEOUT);
     });
@@ -181,7 +174,6 @@ function loadMoreContent() {
             isLoading = false
         });
 }
-
 
 window.addEventListener('scroll', function () {
     // Check if user has scrolled to the bottom of the page
