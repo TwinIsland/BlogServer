@@ -1,6 +1,8 @@
 # SuikaBlog
 
-Welcome to SuikaBlog! This is the repository for the SuikaBlog project, a blogging platform. You can access the main page of SuikaBlog [here](https://twinisland.github.io/SuikaBlog/).
+Welcome to SuikaBlog! This is the repository for the SuikaBlog project, a blogging platform. You can access the main page of SuikaBlog [here](https://blog.yui.im).
+
+> From [commit 5cf0ae6](https://github.com/TwinIsland/SuikaBlog/commit/5cf0ae69a2d76a1906f8a95e9a8af4527881343e), certain functions can only be implemented with backend support, which may result in certain pages appearing buggy.
 
 ## Test Server
 
