@@ -1,5 +1,4 @@
 import { getBlogInfo } from './blog.js';
-import { getVisitorInfo } from './visitor.js';
 import { fetchArticles, wrapArticleUrl } from './post.js';
 import { displayMsgBox, Color } from './utils.js'
 import {
@@ -7,6 +6,7 @@ import {
     NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME, SOCIAL_MEDIA_BILIBILI,
     SOCIAL_MEDIA_GITHUB, SOCIAL_MEDIA_EMAIL_TRIM
 } from './config.js'
+import { generateColor } from './tagColorPicker.js';
 
 document.addEventListener("DOMContentLoaded", function () {
     // render featured post
@@ -16,16 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (featuredPostContent.cover_img !== "") {
         featuredPostBody.style.backgroundImage = `url('${featuredPostContent.cover_img}')`;
     }
-    
+
     document.getElementById('featured-post-title').textContent = featuredPostContent.title;
     document.getElementById('featured-post-content').textContent = featuredPostContent.leadContent;
-    
+
     const postLinkElement = document.getElementById('featured-post-link');
     postLinkElement.href = wrapArticleUrl(featuredPostContent.id);
-    
-    // render visitor info
-    const visitorInfo = getVisitorInfo();
-    document.getElementById('userInfo').textContent = visitorInfo['name']
 
     // render initial articles 
     document.querySelector('.skeleton-container-2').style.display = 'block';
@@ -56,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tags.forEach(tag => {
         const tagClone = document.importNode(tagTemplate, true);
-        tagClone.querySelector('button').innerText = tag;
+        const buttonElement = tagClone.querySelector('button');
+        buttonElement.innerText = tag;
+        buttonElement.style.backgroundColor = generateColor(tag);
         tagGroup.appendChild(tagClone);
     });
 
@@ -193,3 +191,13 @@ document.getElementById('subscribeForm').addEventListener('submit', function (e)
     }
 });
 
+// bind links
+document.querySelector('.article_box').addEventListener('click', function (event) {
+    // Check if the clicked element or its parent is a .blog-post
+    let blogPost = event.target.closest('.blog-post');
+
+    if (!blogPost) return;
+
+    const articleId = blogPost.getAttribute('article-id');
+    page.redirect(wrapArticleUrl(articleId));
+});

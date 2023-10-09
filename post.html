@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-  <script src="./assets/dist/js/color-modes.js"></script>
+  <script src="/assets/dist/js/color-modes.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
@@ -10,7 +10,7 @@
 
 
   <!-- Bootstrap core CSS -->
-  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/assets/brand/logo.svg">
 
 
@@ -20,31 +20,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="assets/dist/css/blog.css" rel="stylesheet">
-  <link href="assets/dist/css/post.css" rel="stylesheet">
-  <link href="assets/dist/css/material.css" rel="stylesheet">
-
-  <!-- Barba initialize -->
-  <script src="assets/dist/js/barba.js">
-    barba.init({
-      transitions: [{
-        name: 'opacity-transition',
-        leave(data) {
-          return gsap.to(data.current.container, {
-            opacity: 0
-          });
-        },
-        enter(data) {
-          return gsap.from(data.next.container, {
-            opacity: 0
-          });
-        }
-      }]
-    });
-  </script>
+  <link href="/assets/dist/css/blog.css" rel="stylesheet">
+  <link href="/assets/dist/css/post.css" rel="stylesheet">
+  <link href="/assets/dist/css/material.css" rel="stylesheet">
 </head>
 
-<body data-barba="wrapper">
+<body>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
       <path
@@ -151,105 +132,107 @@
     </header>
 
     <!-- navbar -->
-    <div class="nav-scroller py-1 mb-2" data-barba="container" data-barba-namespace="home">
+    <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-between" id="navContainer"></nav>
     </div>
   </div>
 
   <!-- featured post -->
-  <main class="container" data-barba="container" data-barba-namespace="home">
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" id="featured-post">
-      <div class="col-md-6 px-0">
-        <h1 class="display-4 fst-italic" id="featured-post-title"></h1>
-        <p class="lead lead-content my-3" id="featured-post-content"></p>
-        <p class="lead mb-0"><a href="#" id="featured-post-link" class="text-white fw-bold">Continue reading...</a>
-        </p>
+  <main class="container">
+
+    <div class="article-banner">
+      <div class="banner-content">
+        <h1 class="article-title">用「WebP Server Go」优化你的图片</h1>
+        <p class="article-state">By mikusa • 2023-09-21</p>
       </div>
     </div>
 
-    <!-- trend post -->
-    <template id="postTemplate">
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2" style="color: #bf1932">Trend</strong>
-            <h3 class="mb-0 post-title"></h3>
-            <div class="mb-1 text-muted post-date"></div>
-            <p class="card-text mb-auto mt-2 post-description"></p>
-            <a href="#" class="stretched-link" id="trend-link">Continue reading</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img class="bd-placeholder-img post-image" src="assets/imgs/banner.jpg" alt="Banner Description">
-          </div>
-        </div>
-      </div>
-    </template>
-
-    <div class="row mb-2" id="trendPostsContainer"></div>
-
     <div class="row g-lg-5">
       <div class="col-md-8">
-        <div class="separator">
-          <span>OLDER POST</span>
+        <!-- Metadata Section -->
+        <div class="metadata-section mb-4 mx-2" style="padding-bottom: 10px; font-family: 'Noto Sans SC', sans-serif;">
+          <p class="mb-0 post-meta" style="font-size: 16px; font-weight: 500;">6138 kHz | 4,154 字 | Last Commit:
+            13/06/23</p>
         </div>
 
-        <!-- older post -->
-        <template id="articleTemplate">
-          <article class="blog-post" article-id="">
-            <h2 class="blog-post-title"></h2>
-            <p class="blog-post-meta">
-              <span></span>
-              <span class="text-warning"></span>
-            </p>
-            <p class="blog-post-content"></p>
-          </article>
-        </template>
+        <article class="article-body">
+          <h1>你哈珀</h1>
+          <p>后知后觉为什么是叫“第0章”。
 
-        <div class="article_box"></div>
+            本以为是用来介绍角色的，谁知只是用来介绍大标题上的概念，并引出卡纳依区这座“雾雨谜宫”的。
 
+            合着请来那么豪华的声优阵容真就只是走个过场而已。毕竟动用如此多老牌声优来配ADV还是太贵了（笑）</p>
+          <h2>Subtitle</h2>
+          <p>This is some additional paragraph placeholder content. It has been written to fill the available space and
+            show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the
+            demonstration flowing, so be on the lookout for this exact same string of text.</p>
+          <blockquote>
+            <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
+          </blockquote>
+          <p>This is some additional paragraph placeholder content. It has been written to fill the available space and
+            show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the
+            demonstration flowing, so be on the lookout for this exact same string of text.</p>
+          <img src="/assets/imgs/test.webp" alt="" loading="lazy">
+          <h2>Example table</h2>
+          <p>And don't forget about tables in these posts:</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Upvotes</th>
+                <th>Downvotes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alice</td>
+                <td>10</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>4</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Charlie</td>
+                <td>7</td>
+                <td>9</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Totals</td>
+                <td>21</td>
+                <td>23</td>
+              </tr>
+            </tfoot>
+          </table>
 
-        <!-- skeleton for post placeholder -->
-        <div class="skeleton-container mb-5" style="display: none;">
-          <div class="skeleton skeleton-title skeleton-shimmer"></div>
-          <div class="skeleton skeleton-meta skeleton-shimmer"></div>
-          <div class="skeleton skeleton-text skeleton-shimmer"></div>
-        </div>
-
-        <div class="skeleton-container-2 mb-5" style="display: none;">
-          <div class="skeleton skeleton-post skeleton-shimmer"></div>
-        </div>
+          <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly
+            repetitive body text used throughout.</p>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, quaerat? Ab officiis sequi qui vel
+            mollitia repudiandae dolorum unde nemo explicabo, esse perferendis eius a dignissimos? Harum veritatis
+            quisquam quaerat.
+            Quasi at incidunt quisquam porro eum sunt, saepe soluta, dignissimos ut fugiat nemo distinctio assumenda!
+            Ipsum quos enim aliquid debitis. Perferendis corrupti officiis minima soluta quisquam fugiat atque, dolor
+            qui?
+            Omnis obcaecati adipisci corrupti voluptates similique illo itaque excepturi velit dolores nostrum
+            recusandae numquam odio, sequi laborum iste. Cupiditate ipsum rem quas omnis ullam minima atque consequuntur
+            iure exercitationem perspiciatis!</p>
+        </article>
 
       </div>
 
       <div class="col-md-4 d-none d-md-block">
-        <!-- about-->
         <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-body-tertiary rounded">
-            <h4 class="fst-italic mb-3">About</h4>
-            <p class="mb-0" id="about-body"></p>
+
+          <div class="p-4 d-none d-md-block" id="table-of-contents">
+            <h4 class="fst-italic">TOC</h4>
+            <ul id="toc-list">
+            </ul>
           </div>
 
-          <!-- tag group -->
-          <template id="tagTemplate">
-            <button type="button" class="btn btn-dark btn-sm tag mx-1"></button>
-          </template>
-
-          <div class="p-4 d-none d-md-block" id="tag-group">
-            <h4 class="fst-italic mb-4">Tags</h4>
-          </div>
-
-          <!-- archives -->
-          <template id="archiveItemTemplate">
-            <li class="timeline-item mb-2">
-              <a href="#"></a>
-            </li>
-          </template>
-          <div class="p-4 d-none d-md-block" target="_blank">
-            <h4 class="fst-italic">Archives</h4>
-            <ul class="timeline mt-3" id="archiveContainer"></ul>
-          </div>
-
-          <!-- Contact list -->
           <div class="p-4 d-none d-md-block contact-list">
             <h4 class="fst-italic">Find me</h4>
             <ol class="list-unstyled d-inline-flex">
@@ -283,11 +266,12 @@
                   </svg>
                 </a>
               </li>
-
             </ol>
           </div>
+
         </div>
       </div>
+
     </div>
   </main>
 
@@ -377,11 +361,13 @@
   </footer>
 
   <!-- the import order make difference, do not switch -->
-  <script type="module" src="assets/dist/js/header.js?v=0.2"></script>
-  <script type="module" src="assets/dist/js/body.js?v=0.2"></script>
-  <script type="module" src="assets/dist/js/footer.js?v=0.2"></script>
+  <script type="module" src="/assets/dist/js/header.js?v=0.2"></script>
+  <script type="module" src="/assets/dist/js/footer.js?v=0.2"></script>
+  <script src="/assets/dist/js/toc.js"></script>
 
-  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/dist/js/page.js"></script>
+  <script src="/assets/dist/js/router.js"></script>
 
 </body>
 

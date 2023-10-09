@@ -49,7 +49,7 @@ export function getBlogInfo(key = null) {
             ],
 
             navLinks: [
-                { text: "首页", link: "#" },
+                { text: "首页", link: "/" },
                 { text: "笔记", link: "#" },
                 { text: "追番", link: "#" },
                 { text: "关于", link: "/about" },
