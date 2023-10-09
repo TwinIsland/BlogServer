@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     navLinks.forEach(link => {
         const aTag = document.createElement('a');
         aTag.className = 'p-2 link-secondary';
-        aTag.href = link.href;
+        aTag.href = link.link;
         aTag.textContent = link.text;
         navElement.appendChild(aTag);
     });

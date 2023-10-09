@@ -49,14 +49,14 @@ export function getBlogInfo(key = null) {
             ],
 
             navLinks: [
-                { text: "首页", href: "#" },
-                { text: "笔记", href: "#" },
-                { text: "追番", href: "#" },
-                { text: "关于", href: "#" },
-                { text: "相册", href: "#" },
-                { text: "存档", href: "#" },
-                { text: "友链", href: "#" },
-                { text: "实验室", href: "#" },
+                { text: "首页", link: "#" },
+                { text: "笔记", link: "#" },
+                { text: "追番", link: "#" },
+                { text: "关于", link: "./about" },
+                { text: "相册", link: "#" },
+                { text: "存档", link: "#" },
+                { text: "友链", link: "#" },
+                { text: "实验室", link: "#" },
             ],
 
             about: "贰岛主题 V1.0 正式发布啦 Erdao Theme V1.0 officially released!!!"
