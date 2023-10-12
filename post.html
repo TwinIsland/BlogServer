@@ -95,14 +95,6 @@
     </ul>
   </div>
 
-  <!-- animation before page loaded-->
-  <div id="loadingOverlay">
-    <div class="loadingText"></div>
-    <div class="loadingBar">
-      <div class="innerBar"></div>
-    </div>
-  </div>
-
   <div class="container">
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
@@ -137,9 +129,8 @@
     </div>
   </div>
 
-  <!-- featured post -->
+  <!-- start of article -->
   <main class="container">
-
     <div class="article-banner">
       <div class="banner-content">
         <h1 class="article-title">用「WebP Server Go」优化你的图片</h1>
@@ -156,12 +147,18 @@
         </div>
 
         <article class="article-body">
-          <h1>你哈珀</h1>
+          <h1>主题Title</h1>
           <p>后知后觉为什么是叫“第0章”。
 
             本以为是用来介绍角色的，谁知只是用来介绍大标题上的概念，并引出卡纳依区这座“雾雨谜宫”的。
 
             合着请来那么豪华的声优阵容真就只是走个过场而已。毕竟动用如此多老牌声优来配ADV还是太贵了（笑）</p>
+          <p>
+            continuous uniform distribution: A con­tin­u­ous ran­dom vari­able whose prob­a­bil­ity dis­tri­b­u­tion is
+            the uni­form dis­tri­b­u­tion is of­ten called a uni­form ran­dom vari­able. If we know noth­ing about a
+            ran­dom vari­able apart from the fact that it has a lower and an up­per bound, then a uni­form
+            dis­tri­b­u­tion is a nat­ural model
+          </p>
           <h2>Subtitle</h2>
           <p>This is some additional paragraph placeholder content. It has been written to fill the available space and
             show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the
@@ -220,8 +217,67 @@
             Omnis obcaecati adipisci corrupti voluptates similique illo itaque excepturi velit dolores nostrum
             recusandae numquam odio, sequi laborum iste. Cupiditate ipsum rem quas omnis ullam minima atque consequuntur
             iure exercitationem perspiciatis!</p>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quod modi rem aliquam recusandae dolorem
+            quae beatae doloremque quidem nobis officia nesciunt maiores aut eius praesentium eos at asperiores nihil.
+          </p>
         </article>
 
+        <!-- write two buttom: QR Enjoy and two clickable icon twitter, twitter-->
+        <hr class="mt-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <button class="btn btn-info" id="qr-btn">QR</button>
+            <button class="btn btn-info" id="enjoy-btn">Enjoy</button>
+          </div>
+          <div>
+            <a href="https://twitter.com" target="_blank" class="mx-2" style="text-decoration: none;" id="wechat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z" />
+              </svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="mx-2" id="twitter-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <hr>
+
+        <div class="comment my-5">
+          <p class="mb-3 fw-bold" style="font-size: 1.17em;">添加新评论</p>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="称呼(必填)" required>
+              </div>
+              <div class="col-md-4">
+                <input type="email" class="form-control" placeholder="电子邮件(必填，将保密)" required>
+              </div>
+              <div class="col-md-4">
+                <input type="url" class="form-control" placeholder="网站(选填)">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <textarea class="form-control" rows="4" placeholder="在这里输入你的评论"></textarea>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="me-3 d-flex align-items-center">
+              <div id="captchaContainer"> </div>
+              <span class="px-2">=</span>
+              <input class="form-control" placeholder="?" style="width: 100px;" required>
+            </div>
+            <button class="btn btn-primary material-btn">Submit</button>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-4 d-none d-md-block">
@@ -271,7 +327,6 @@
 
         </div>
       </div>
-
     </div>
   </main>
 
@@ -362,13 +417,29 @@
 
   <!-- the import order make difference, do not switch -->
   <script type="module" src="/assets/dist/js/header.js?v=0.2"></script>
+  <script type="module" src="/assets/dist/js/sidebar.js"></script>
   <script type="module" src="/assets/dist/js/footer.js?v=0.2"></script>
-  <script src="/assets/dist/js/toc.js"></script>
+  <script src="/assets/dist/js/article.js"></script>
 
   <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/dist/js/page.js"></script>
   <script src="/assets/dist/js/router.js"></script>
 
+  <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    async function fetchCaptcha() {
+      try {
+        let response = await fetch('/captcha');
+        let svgData = await response.text();
+        document.getElementById('captchaContainer').innerHTML = svgData;
+      } catch (error) {
+        console.error('Error fetching CAPTCHA:', error);
+      }
+    }
+
+    fetchCaptcha();
+  </script>
 </body>
 
 </html>

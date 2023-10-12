@@ -1,9 +1,3 @@
-/* stylelint-disable selector-list-comma-newline-after */
-
-body {
-  font-family: 'Noto Sans SC', sans-serif;
-}
-
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
@@ -11,6 +5,7 @@ body {
 
 .blog-header-logo {
   font-family: LogoFont;
+  font-display: swap;
   font-size: 2.25rem;
 }
 
@@ -108,6 +103,7 @@ body {
 @font-face {
   font-family: LogoFont;
   src: url(../../fonts/logo_font.ttf);
+  font-display: swap;
 }
 
 
@@ -202,6 +198,7 @@ a:focus {
 
 .blog-footer-logo {
   font-family: LogoFont;
+  font-display: swap;
   font-size: 20px;
 }
 
@@ -233,16 +230,18 @@ a:focus {
 /* ripple effect on every blog-post */
 .ripple {
   position: absolute;
-  border-radius: 50%; /* Circle shape */
-  background: rgba(255, 255, 255, 0.7); /* Semi-transparent white. Adjust color as needed */
+  border-radius: 50%;
+  /* Circle shape */
+  background: rgba(255, 255, 255, 0.7);
+  /* Semi-transparent white. Adjust color as needed */
   transform: scale(0);
   animation: ripple-animation 0.6s linear;
 }
 
 @keyframes ripple-animation {
   to {
-      transform: scale(4);
-      opacity: 0;
+    transform: scale(4);
+    opacity: 0;
   }
 }
 
@@ -344,11 +343,11 @@ a:focus {
 }
 
 .contact-list svg {
-  fill: var(--bs-secondary-color); 
+  fill: var(--bs-secondary-color);
 }
 
 .svg-logo:hover svg {
-  filter: brightness(0.6); 
+  filter: brightness(0.6);
 }
 
 [data-bs-theme=dark] .load-more-block .btn {
@@ -371,18 +370,19 @@ a:focus {
 }
 
 [data-bs-theme=dark] .blog-header-logo {
-  color: var(--bs-secondary-color)!important;
+  color: var(--bs-secondary-color) !important;
   filter: drop-shadow(2px 2px 27px #f5df4d);
 }
 
 [data-bs-theme=dark] .blog-footer-logo {
-  color: var(--bs-secondary-color)!important;
+  color: var(--bs-secondary-color) !important;
   filter: drop-shadow(2px 2px 10px #f5df4d);
 }
 
 .form-control:focus {
   border-color: #7e9fc7;
-  box-shadow: 0 0 0 0.25rem #99b5d6; /* This creates a green glow around the input */
+  box-shadow: 0 0 0 0.25rem #99b5d6;
+  /* This creates a green glow around the input */
 }
 
 
@@ -390,6 +390,7 @@ a:focus {
 .msg-box {
   position: fixed;
   font-family: 'Noto Sans SC', sans-serif;
+  font-display: swap;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -418,7 +419,9 @@ a:focus {
   display: flex;
   z-index: 9999;
   font-family: 'LogoFont';
-  flex-direction: column; /* vertical alignment */
+  font-display: swap;
+  flex-direction: column;
+  /* vertical alignment */
   justify-content: center;
   align-items: center;
   opacity: 1;
@@ -435,7 +438,8 @@ a:focus {
 }
 
 #loadingOverlay .loadingBar {
-  width: 50%;     /* Shorter loading bar */
+  width: 50%;
+  /* Shorter loading bar */
   height: 20px;
   background-color: var(--bs-secondary-color);
   position: relative;
@@ -448,7 +452,8 @@ a:focus {
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: #000000;   /* Black color */
+  background-color: #000000;
+  /* Black color */
   animation: loadingAnimation 1s infinite;
 }
 
@@ -456,29 +461,36 @@ a:focus {
 
 @keyframes loadingAnimation {
   0% {
-      left: -100%;
+    left: -100%;
   }
+
   20% {
-      left: 100%;
+    left: 100%;
   }
+
   100% {
-      left: 100%;
+    left: 100%;
   }
 }
 
 /* scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;  /* Adjust the width as needed */
-  height: 8px;  /* Adjust the height for horizontal scrollbars */
+  width: 8px;
+  /* Adjust the width as needed */
+  height: 8px;
+  /* Adjust the height for horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;  /* You can set this to a color or leave transparent */
+  background: transparent;
+  /* You can set this to a color or leave transparent */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bs-secondary-color);  /* Your desired color for the scrollbar thumb */
-  border-radius: 0;  /* This makes the scrollbar square */
+  background-color: var(--bs-secondary-color);
+  /* Your desired color for the scrollbar thumb */
+  border-radius: 0;
+  /* This makes the scrollbar square */
 }
 
 /* scrollbar For Firefox */
@@ -498,7 +510,8 @@ a:focus {
 }
 
 .separator span {
-  background-color: var(--bs-body-bg); /* adjust this if necessary */
+  background-color: var(--bs-body-bg);
+  /* adjust this if necessary */
   padding: 0 10px;
   position: relative;
   z-index: 1;
@@ -508,8 +521,10 @@ a:focus {
   content: '';
   display: block;
   height: 1px;
-  background-color: #000; /* color of the decorative line */
-  position: absolute; /* corrected the typo here */
+  background-color: #000;
+  /* color of the decorative line */
+  position: absolute;
+  /* corrected the typo here */
   left: 0;
   right: 0;
   top: 50%;
@@ -523,5 +538,7 @@ a:focus {
 /* badge */
 .badge {
   cursor: pointer;
-  margin-bottom: 3px; /* Adjust the spacing between wrapped tags */
+  margin-bottom: 3px;
+  /* Adjust the spacing between wrapped tags */
 }
+

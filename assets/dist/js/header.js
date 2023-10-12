@@ -4,11 +4,6 @@ import { getVisitorInfo } from './visitor.js';
 
 
 document.addEventListener("DOMContentLoaded", function() {
-
-    // before rendering header, hide the scrool bar to support loading page
-    document.querySelector(".loadingText").textContent = OVERLAY_LOADING_TEXT
-    document.body.style.overflow = 'hidden'
-
     // render blog name and title
     document.title = getBlogInfo("blog_title");
 

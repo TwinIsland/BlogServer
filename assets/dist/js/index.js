@@ -2,9 +2,8 @@ import { getBlogInfo } from './blog.js';
 import { fetchArticles, wrapArticleUrl } from './post.js';
 import { displayMsgBox, Color } from './utils.js'
 import {
-    MSG_BOX_DISPLAY_TIME, MSG_BOX_ERRMSG_DISPLAY_TIME, LOADING_ERR_MSG, LOADING_TIMEOUT,
-    NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME, SOCIAL_MEDIA_BILIBILI,
-    SOCIAL_MEDIA_GITHUB, SOCIAL_MEDIA_EMAIL_TRIM
+    MSG_BOX_DISPLAY_TIME, MSG_BOX_ERRMSG_DISPLAY_TIME, LOADING_ERR_MSG,
+    LOADING_TIMEOUT, NO_MORE_POST_MSG, INIT_RENDER_POST, RENDER_POST_PER_TIME
 } from './config.js'
 import { generateColor } from './tagColorPicker.js';
 
@@ -97,12 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         archiveContainer.appendChild(archiveItemClone);
     });
 
-    // render social medias
-    document.getElementById("github-link").href = SOCIAL_MEDIA_GITHUB
-    document.getElementById("email-p1").textContent = SOCIAL_MEDIA_EMAIL_TRIM.split(' ')[0]
-    document.getElementById("email-p2").textContent = SOCIAL_MEDIA_EMAIL_TRIM.split(' ')[1]
-    document.getElementById("email-p3").textContent = SOCIAL_MEDIA_EMAIL_TRIM.split(' ')[2]
-    document.getElementById("bilibili-link").href = SOCIAL_MEDIA_BILIBILI
 });
 
 function renderArticle(article) {

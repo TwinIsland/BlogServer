@@ -23,6 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
         listItem.appendChild(anchor);
         tocList.appendChild(listItem);
     });
+
+    const images = document.querySelectorAll('.article-body img');
+
+    images.forEach(function(image) {
+        image.addEventListener('click', function() {
+            if (this.classList.contains('zoomed')) {
+                this.classList.remove('zoomed');
+            } else {
+                this.classList.add('zoomed');
+            }
+        });
+    });
 });
 
 // Function to highlight the active TOC entry
