@@ -167,8 +167,8 @@ function loadMoreContent() {
 }
 
 window.addEventListener('scroll', function () {
-    // Check if user has scrolled to the bottom of the page
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        console.log("hello")
         loadMoreContent();
     }
 });

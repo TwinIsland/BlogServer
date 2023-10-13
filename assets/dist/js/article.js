@@ -4,8 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     headers.forEach((header, index) => {
         // Assign an ID to each header to link to
-        const id = `header-${index + 1}`;
+        const id = index + 1;
         header.id = id;
+
+        // Create a clickable '#' span and append it to the header
+        header.classList.add('hash-link');
+        header.addEventListener('click', () => {
+            window.location.hash = `#${id}`;
+        });
 
         // Create the TOC list item and link
         const listItem = document.createElement('li');
@@ -22,18 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         listItem.appendChild(anchor);
         tocList.appendChild(listItem);
-    });
-
-    const images = document.querySelectorAll('.article-body img');
-
-    images.forEach(function(image) {
-        image.addEventListener('click', function() {
-            if (this.classList.contains('zoomed')) {
-                this.classList.remove('zoomed');
-            } else {
-                this.classList.add('zoomed');
-            }
-        });
     });
 });
 

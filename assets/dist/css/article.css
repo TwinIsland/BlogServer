@@ -24,6 +24,10 @@
     margin-top: 2em;
 }
 
+.article-body h1,
+.article-body h2:hover {
+    border-left: 0.15em solid #ce553f;
+}
 
 .article-body h1 {
     font-size: 2.5em;
@@ -46,6 +50,7 @@
     margin-bottom: 1.5rem;
     text-align: justify;
     text-justify: inter-word;
+    font-size: 19px;
 }
 
 /* Lists */
@@ -113,7 +118,8 @@
 
 .zoomed {
     z-index: 999;
-    transform: scale(1.5); /* Adjust the scale as needed */
+    transform: scale(1.5);
+    /* Adjust the scale as needed */
 }
 
 post-meta {
@@ -206,32 +212,47 @@ post-meta {
 
 /* article btn */
 #qr-btn {
-    border: solid #bf1932 !important;
+    border: solid #bf1932;
     color: #bf1932;
     display: inline-block;
     background-color: transparent;
-  }
-  
-  #qr-btn:hover {
+    font-weight: 700;
+}
+
+#qr-btn:hover {
     color: white;
     background-color: #bf1932;
-  }
-  
-  #enjoy-btn {
-    color: black;
-    border:solid rgba(0, 0, 0, .98)  !important;
+}
+
+#enjoy-btn {
+    color: #aaa;
+    border: solid #aaa;
+    font-weight: 700;
     background-color: transparent;
-  }
-  
-  #enjoy-btn:hover {
-    color: white;
+}
+
+#enjoy-btn:hover {
+    border: solid black;
     background-color: black;
-  }
+}
 
-  #wechat-icon {
+
+#wechat-icon {
     fill: #09B83E;
-  }
+}
 
-  #twitter-icon {
+#twitter-icon {
     fill: #26a7de
-  }
+}
+
+/* captcha */
+[data-bs-theme=dark] #captchaContainer {
+    background-color: white;
+    border-radius: 4px;
+}
+
+/* hover-anchor */
+.hash-link {
+    cursor: pointer;
+    margin-left: 2px;
+}
