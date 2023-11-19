@@ -1,29 +1,83 @@
-# SuikaBlog
+## Suika Blog System
+backend purely driven by fastapi, frontend by vue. 
 
-Welcome to SuikaBlog! This is the repository for the SuikaBlog project, a blogging platform. You can access the main page of SuikaBlog [here](https://blog.yui.im).
+### Security
 
-> From [commit 5cf0ae6](https://github.com/TwinIsland/SuikaBlog/commit/5cf0ae69a2d76a1906f8a95e9a8af4527881343e), certain functions can only be implemented with backend support, which may result in certain pages appearing buggy.
+OAuth2 + JWT
 
-## Test Server
+### Cache
+Redis + Beaker 
 
-To test SuikaBlog, we provide a test server that is driven by `express`. Here's how you can set it up:
 
-1. Make sure you have Node.js installed on your system.
-2. Install the necessary dependencies by running the following command:
-   ```bash
-   npm install
-   ```
-3. Once the dependencies are installed, you can start the test server by running:
-   ```bash
-   node server.js
-   ```
+### Database
+```mermaid
+graph TD
 
-The final server will be built using `zig/zap`, so you don't need to worry about dealing with any npm-related stuff. It's a convenient way to preview and test SuikaBlog during development.
+subgraph Blog
+  blog_name
+  blog_description
+  admin_name
+  admin_username
+  admin_email
+  admin_avatar
+  admin_hashed_password
+  create_time
+  version
+end
 
-## Under Development
+subgraph Visitor
+  id
+  user_name
+  email
+  url
+  is_banned
+  hashed_info
+  create_time
+  last_active_time
+end
 
-Please note that SuikaBlog is currently under development. We are actively working on improving and adding features to make it a great blogging platform. Feel free to contribute or provide feedback to help us make it even better.
+subgraph Article
+  id
+  title
+  content
+  word_count
+  cover_url
+  description
+end
 
-Thank you for checking out SuikaBlog!
+subgraph Media
+  id
+  name
+  size
+  is_local
+  remote_url
+  owner_id
+  create_time
+end
 
-This updated README.md provides clear instructions on setting up and testing the project, along with a note about its current development status.
+subgraph Tag
+  id
+  name
+end
+
+subgraph Comment
+  id
+  create_time
+  content
+  owner_id
+  by_admin
+  author_id
+end
+
+Blog -->|1| Article
+Visitor -->|1-n| Comment
+Article -->|1-n| Comment
+Article -->|1-n| Media
+Article -->|m-n| Tag
+Tag -->|m-n| Article
+```
+### run
+you may installing the environment and run this project via `make`, or use direct `uvicorn` to run `main:app`
+
+
+under developing...
