@@ -5,7 +5,10 @@ backend purely driven by fastapi, frontend by vue.
 
 OAuth2 + JWT
 
-### Cache
+### Cache 
+
+> still developing
+
 Redis + Beaker 
 
 
@@ -77,7 +80,8 @@ Article -->|m-n| Tag
 Tag -->|m-n| Article
 ```
 ### run
-you may installing the environment and run this project via `make`, or use direct `uvicorn` to run `main:app`
+```bash
+pipenv install
+pipenv uvicorn main:app
+```
 
-
-under developing...

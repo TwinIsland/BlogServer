@@ -9,10 +9,8 @@ mistune = "*"
 python-multipart = "*"
 python-jose = {extras = ["cryptography"], version = "*"}
 jose = "*"
-redis = "*"
 fastapi-amis-admin = "*"
 pydantic-settings = "*"
-jinja2 = "*"
 
 [dev-packages]
 black = {version = "*"}
