@@ -44,7 +44,7 @@ if not os.path.isdir(UPLOAD_MOUNT_DIR):
     os.mkdir(UPLOAD_MOUNT_DIR)
     print("\033[92mok!\033[0m")
 
-app.mount("/static", StaticFiles(directory=STATIC_MOUNT_DIR), name='static')
+app.mount("/static", StaticFiles(directory=STATIC_MOUNT_DIR), name="static")
 app.mount("/upload", StaticFiles(directory=UPLOAD_MOUNT_DIR))
 
 app.add_middleware(

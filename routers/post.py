@@ -24,9 +24,9 @@ def fill_db_post(db_post):
 
 @router.post("/post", response_model=schemas.Post, dependencies=[Depends(is_admin)])
 async def add_post(
-        post: schemas.PostCreate,
-        renderer: RendererEnum = RendererEnum.DEFAULT,
-        db=Depends(get_db),
+    post: schemas.PostCreate,
+    renderer: RendererEnum = RendererEnum.DEFAULT,
+    db=Depends(get_db),
 ):
     if not post.description:
         post.description = Service.generate_description(_post_body=post)
@@ -50,7 +50,7 @@ async def get_full_post(post_id: int, db: Session = Depends(get_db)):
 
 @router.post("/{post_id}", response_model=schemas.PostBody)
 async def get_post_body(
-        post_id: int, render: bool = False, db: Session = Depends(get_db)
+    post_id: int, render: bool = False, db: Session = Depends(get_db)
 ):
     db_post = crud.get_post(db=db, post_id=post_id)
     if not db_post:
@@ -79,7 +79,7 @@ async def get_post_body(
 
 @router.get("/", response_model=list[list[schemas.PostMeta]])
 async def get_post_meta(
-        limit: int | None = None, split: int | None = None, db: Session = Depends(get_db)
+    limit: int | None = None, split: int | None = None, db: Session = Depends(get_db)
 ):
     limit = MAX_OUTPUT_ITEM_NUM if not limit else limit
     db_post_meta = crud.get_post_metas(db=db, limit=limit)
@@ -91,7 +91,7 @@ async def get_post_meta(
         raise db_post_meta
     if split and split > 0:
         post_meta_chunk = [
-            db_post_meta[i: i + split] for i in range(0, len(db_post_meta), split)
+            db_post_meta[i : i + split] for i in range(0, len(db_post_meta), split)
         ]
         return post_meta_chunk
     return [db_post_meta]

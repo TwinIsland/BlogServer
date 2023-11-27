@@ -10,7 +10,7 @@ class Utils:
         authorization_header = request.headers.get("Authorization")
 
         if not authorization_header or not authorization_header.lower().startswith(
-                "bearer "
+            "bearer "
         ):
             return False
 
